@@ -46,34 +46,22 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 10,
-              ),
-              Container(
-                color: Colors.teal[100].withAlpha(230),
-                height: 1,
-                margin: EdgeInsets.symmetric(horizontal: 160),
-              ),
-              SizedBox(
-                height: 20,
+                height: 20.0,
+                width: 150.0,
+                child: Divider(
+                  color: Colors.teal.shade100.withAlpha(230),
+                  height: 1,
+                ),
               ),
               TextCard(
                 primaryColor: primaryColor,
-                icon: Icon(
-                  Icons.phone,
-                  color: primaryColor,
-                ),
-                text: "+34 605 371 174",
-              ),
-              SizedBox(
-                height: 20,
+                icon: Icons.phone,
+                text: '+34 605 371 174',
               ),
               TextCard(
                 primaryColor: primaryColor,
-                icon: Icon(
-                  Icons.mail,
-                  color: primaryColor,
-                ),
-                text: "fran29400@gmail.com",
+                icon: Icons.email,
+                text: 'fran29400@gmail.com',
               ),
             ],
           ),
@@ -92,37 +80,27 @@ class TextCard extends StatelessWidget {
   }) : super(key: key);
 
   final Color primaryColor;
-  final Icon icon;
+  final IconData icon;
   final String text;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 48,
-      margin: EdgeInsets.symmetric(horizontal: 50),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(3),
-      ),
-      child: Row(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(left: 12),
-            child: icon,
+    return Card(
+      margin: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+      child: ListTile(
+        leading: Icon(
+          icon,
+          color: primaryColor,
+        ),
+        title: Text(
+          text,
+          style: TextStyle(
+            color: primaryColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 16,
+            fontFamily: "Source Sans Pro",
           ),
-          Container(
-            margin: EdgeInsets.only(left: 50),
-            child: Text(
-              text,
-              style: TextStyle(
-                color: primaryColor,
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                fontFamily: "Source Sans Pro",
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
