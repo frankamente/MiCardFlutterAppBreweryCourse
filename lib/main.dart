@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'Pacifico',
                   fontSize: 32.0,
                 ),
               ),
@@ -37,10 +38,11 @@ class MyApp extends StatelessWidget {
               Text(
                 "FLUTTER DEVELOPER",
                 style: TextStyle(
-                  color: Colors.teal[100].withAlpha(230),
-                  fontSize: 16.0,
+                  color: Colors.teal.shade100,
+                  fontSize: 20.0,
+                  letterSpacing: 2.5,
                   fontWeight: FontWeight.bold,
-                  fontFamily: "Rock Salt",
+                  fontFamily: "Source Sans Pro",
                 ),
               ),
               SizedBox(
@@ -55,35 +57,23 @@ class MyApp extends StatelessWidget {
                 height: 20,
               ),
               TextCard(
+                primaryColor: primaryColor,
                 icon: Icon(
                   Icons.phone,
                   color: primaryColor,
                 ),
-                text: Text(
-                  "+34 605 371 174",
-                  style: TextStyle(
-                    color: primaryColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                  ),
-                ),
+                text: "+34 605 371 174",
               ),
               SizedBox(
                 height: 20,
               ),
               TextCard(
+                primaryColor: primaryColor,
                 icon: Icon(
                   Icons.mail,
                   color: primaryColor,
                 ),
-                text: Text(
-                  "fran29400@gmail.com",
-                  style: TextStyle(
-                    color: primaryColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                  ),
-                ),
+                text: "fran29400@gmail.com",
               ),
             ],
           ),
@@ -96,12 +86,14 @@ class MyApp extends StatelessWidget {
 class TextCard extends StatelessWidget {
   const TextCard({
     Key key,
+    @required this.primaryColor,
     @required this.icon,
     @required this.text,
   }) : super(key: key);
 
+  final Color primaryColor;
   final Icon icon;
-  final Text text;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -120,8 +112,16 @@ class TextCard extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(left: 50),
-            child: text,
-          )
+            child: Text(
+              text,
+              style: TextStyle(
+                color: primaryColor,
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                fontFamily: "Source Sans Pro",
+              ),
+            ),
+          ),
         ],
       ),
     );
